@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "7PXNfbvi6RS4ibIpbu4TTunPVLHWpKkcj0VM9gTaPAI=",
+  "Source": "Xnept",
+  "BasePath": "_content/Xnept",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Xnept\\wwwroot",
+      "Source": "Xnept",
+      "ContentRoot": "C:\\Users\\nekwom1\\source\\repos\\TennApp\\Xnept\\wwwroot\\",
+      "BasePath": "_content/Xnept",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\nekwom1\\source\\repos\\TennApp\\Xnept\\wwwroot\\css\\styles.css",
+      "SourceId": "Xnept",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nekwom1\\source\\repos\\TennApp\\Xnept\\wwwroot\\",
+      "BasePath": "_content/Xnept",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
+    }
+  ]
+}
