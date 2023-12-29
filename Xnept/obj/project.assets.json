@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\Xnept.csproj",
-      "projectName": "Xnept",
-      "projectPath": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\Xnept.csproj",
+      "projectUniqueName": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\nekwom.csproj",
+      "projectName": "nekwom",
+      "projectPath": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\nekwom.csproj",
       "packagesPath": "C:\\Users\\ekwom\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\obj\\",
       "projectStyle": "PackageReference",

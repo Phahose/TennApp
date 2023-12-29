@@ -1,27 +1,27 @@
 {
   "Version": 1,
-  "Hash": "cUknq2+fBaDdyZtUTLTq0pbuLfJ5Zf6cG8huyjNfGBs=",
-  "Source": "Xnept",
-  "BasePath": "_content/Xnept",
+  "Hash": "iD7Q1XtksR2hTXJZYdzJmhMTXbInBB//hrRYKdyuFBo=",
+  "Source": "nekwom",
+  "BasePath": "_content/nekwom",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "Xnept\\wwwroot",
-      "Source": "Xnept",
+      "Name": "nekwom\\wwwroot",
+      "Source": "nekwom",
       "ContentRoot": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\wwwroot\\",
-      "BasePath": "_content/Xnept",
+      "BasePath": "_content/nekwom",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
       "Identity": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\wwwroot\\css\\styles.css",
-      "SourceId": "Xnept",
+      "SourceId": "nekwom",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\wwwroot\\",
-      "BasePath": "_content/Xnept",
+      "BasePath": "_content/nekwom",
       "RelativePath": "css/styles.css",
       "AssetKind": "All",
       "AssetMode": "All",

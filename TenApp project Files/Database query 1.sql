@@ -27,8 +27,15 @@ Create Table Users(
  )
 )
 
--- Drop Table Users
+--Drop Table Users
+Alter Table Users
+ADD UserPassword nvarchar(max) NOT null
 
+--ADD ImageDescription varchar(250) null
+--ADD UserID INT IDENTITY(1,1) PRIMARY KEY;
+
+Alter Table SkippedPlayers
+Drop Constraint FK__SkippedPl__UserI__3A81B327
 
 Create Table Courts (
  CourtName varchar (255),
@@ -79,3 +86,64 @@ CREATE TABLE AcceptedPlayers (
 
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
+
+
+-- Stored Procedures
+
+Create Procedure AddUser(@FirstName varchar(225), @LastName varchar(225),
+						 @Email varchar(225), @Bio varchar(200), @Image varbinary(max),
+						 @ImageDescription varchar(250), @SkillLevel varchar(25), @PlayerRate decimal(5,2),
+						 @UserPassword nvarchar(max), @PhoneNumber nvarchar(max))
+AS
+	IF @FirstName is NULL 
+	RaisError('The FirstName Cannot Be Null',16,1)
+	ELSE
+	IF @LastName is Null
+	RaisError('The LastName Cannot Be Null',16,1)
+	IF @Email is NULL 
+	RaisError('The Email Cannot be Null',16,1)
+	IF @SkillLevel is NULL 
+	RaisError('The Skill Level is Required',16,1)
+
+	ELSE 
+		BEGIN
+		INSERT INTO Users
+		(FirstName, LastName, Email, Bio, Image, SkillLevel, PlayerRate, PhoneNumber, ImageDescription, UserPassword)
+		Values
+		(@FirstName, @LastName,@Email, @Bio, @Image, @SkillLevel, @PlayerRate, @PhoneNumber, @ImageDescription, @UserPassword)
+		END
+
+-- Edit User Stored Procedure
+
+Create Procedure EditUser(@FirstName varchar(225), @LastName varchar(225),
+						 @Email varchar(225), @Bio varchar(200), @Image varbinary(max),
+						 @ImageDescription varchar(250), @SkillLevel varchar(25), @PlayerRate decimal(5,2),
+						 @UserPassword nvarchar(max), @PhoneNumber nvarchar(max), @UserID int)
+AS
+	IF @FirstName is NULL 
+	RaisError('The FirstName Cannot Be Null',16,1)
+	ELSE
+	IF @LastName is Null
+	RaisError('The LastName Cannot Be Null',16,1)
+	IF @Email is NULL 
+	RaisError('The Email Cannot be Null',16,1)
+	IF @SkillLevel is NULL 
+	RaisError('The Skill Level is Required',16,1)
+	IF @UserID is NULL
+	RaisError('The UserID is Required',16,1)
+
+	ELSE
+		BEGIN
+		Update Users
+			SET
+			FirstName = @FirstName,
+			LastName = @LastName,
+			Email = @Email,
+			Bio = @Bio,
+			Image = @Image,
+			SkillLevel = @SkillLevel,
+			PhoneNumber = @PhoneNumber,
+			ImageDescription = @ImageDescription,
+			UserPassword = @UserPassword
+		WHERE UserID = @UserID
+		END

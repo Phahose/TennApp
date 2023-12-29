@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Xnept.Pages
+namespace nekwom.Pages
 {
     public class LoginModel : PageModel
     {

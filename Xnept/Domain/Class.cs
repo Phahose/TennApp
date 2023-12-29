@@ -1,4 +1,4 @@
-﻿namespace Xnept.Domain
+﻿namespace nekwom.Domain
 {
     public class Class
     {

@@ -1,4 +1,4 @@
-﻿namespace Xnept.TechnicalServices
+﻿namespace nekwom.TechnicalServices
 {
     public class Class
     {
