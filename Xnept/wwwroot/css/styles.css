@@ -1,20 +1,4 @@
 ﻿body{
-}
-.firstDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-.opening {
-}
-    .opening h1{
-        font-size: 60px;
-        font-family: monospace;
-    }
-input[type=submit]{
-    background-color: peachpuff;
-    height: 3rem;
-    border-radius: 10%;
-    padding: 1rem;
+    margin: 0;
+    padding: 0;
 }
