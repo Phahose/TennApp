@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
+      "Id": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\wwwroot\\img\\ClayServe.jpg",
+      "PackagePath": "staticwebassets\\img\\ClayServe.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ekwom\\OneDrive\\Desktop\\XenApp\\Xnept\\wwwroot\\img\\PickleballMan.jpg",
+      "PackagePath": "staticwebassets\\img\\PickleballMan.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.nekwom.props",
       "PackagePath": "build\\nekwom.props"
     },
