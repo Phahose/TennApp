@@ -1,0 +1,72 @@
+﻿@page
+@model nekwom.Pages.IndexModel
+@{
+
+}
+<div class="holder-home">
+   <h1>Find Your Rival</h1>
+</div>
+<div class="pre-login-div hide" id="login">
+    <div class="login-div" >
+        <div>
+            <h2>Hey...Who are you again? </h2>
+        </div>
+        <div class="login-container">
+           
+            <form class="basicform" name="LoginForm" method="post">
+                <label for="Email">Email</label><br />
+                <input type="email" name="Email" required /><br />
+                <label for="Password">Password</label><br />
+                <input type="password" name="Password" required /><br />
+                <input type="submit" name="Submit" value="Enter" />
+            </form>
+        </div>
+     
+    </div>  
+</div>
+<div class="pre-login-div hide" id="sign-up">
+    <div class="login-div">
+        <div>
+            <h2>Hey Join Us </h2>
+            <p> Find your Next Rival and Build your path</p>
+        </div>
+        <div class="login-container">
+           
+            <form class="basicform" name="LoginForm" method="post">
+
+                <label for="FirstName">FirstName</label><br />
+                <input type="text" name="FirstName" required /><br />
+
+                <label for="LastName">LastName</label><br />
+                <input type="text" name="LastName" required /><br />
+
+                <label for="tennis-level">Sport</label><br />
+                <select id="tennis-level" name="tennis-level" required>
+                    <option value="" disabled selected>Select your Sport</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Pickeball">Pickleball</option>
+                    <option value="Badminton">Badminton</option>
+                </select><br />
+
+                 <label for="tennis-level">Sport Level</label><br />
+                <select id="tennis-level" name="tennis-level" required>
+                    <option value="" disabled selected>Select your level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="professional">Professional</option>
+                </select><br />
+
+                 <label for="Email">Email</label><br />
+                <input type="email" name="Email" required /><br />
+
+                <label for="Password">Password</label><br />
+                <input type="password" name="Password" required /><br />
+
+                <input type="submit" name="Submit" value="Join" />
+            </form>
+        </div>
+     
+    </div>  
+</div>
+

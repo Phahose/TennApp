@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\wwwroot\\img\\ClayServe.jpg",
+      "PackagePath": "staticwebassets\\img\\ClayServe.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\wwwroot\\img\\PickleballMan.jpg",
+      "PackagePath": "staticwebassets\\img\\PickleballMan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\wwwroot\\img\\oncourtlogo.png",
+      "PackagePath": "staticwebassets\\img\\oncourtlogo.png"
+    },
+    {
+      "Id": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\wwwroot\\img\\oncourtlogobw.png",
+      "PackagePath": "staticwebassets\\img\\oncourtlogobw.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.OnCourt.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.OnCourt.props",
+      "PackagePath": "build\\OnCourt.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.OnCourt.props",
+      "PackagePath": "buildMultiTargeting\\OnCourt.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.OnCourt.props",
+      "PackagePath": "buildTransitive\\OnCourt.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

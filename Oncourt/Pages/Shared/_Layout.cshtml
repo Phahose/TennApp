@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <script defer src="node_modules/swup/dist/Swup.modern.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/high-pixel-7" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Bootstrap Icons Library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <title>Nicholas Ekwom</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon3.png">
+</head>
+<body>
+    <header>
+        <ul class="home-nav">
+            <li><a href="~/Index"><img src="~/img/oncourtlogobw.png" alt="OnCourt Logo" width="200px"/></a></li>
+
+            <li >
+                <ul>
+                    <li class="login" id="login-button">Login</li>
+                    <li class="create-account" id="signup-button">Create Account</li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <div class="firstDiv">
+        @RenderBody()
+    </div>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            var loginButton = document.getElementById("login-button");
+            var signUpButton = document.getElementById("signup-button");
+            var loginForm = document.getElementById("login");
+            var signUpForm = document.getElementById("sign-up");
+
+            function showLoginForm() {
+                signUpForm.classList.add("hide");
+                loginForm.classList.remove("hide");
+            }
+
+            function showSignUpForm() {
+                loginForm.classList.add("hide");
+                signUpForm.classList.remove("hide");
+            }
+
+            loginButton.onclick = showLoginForm;
+            signUpButton.onclick = showSignUpForm;
+        });
+    </script>
+    </script>
+</body>
+</html>
