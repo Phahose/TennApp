@@ -32,7 +32,7 @@
         </div>
         <div class="login-container">
            
-            <form class="basicform" name="LoginForm" method="post">
+            <form class="basicform" name="LoginForm" method="post" enctype="multipart/form-data">
 
                 <label for="FirstName">FirstName</label><br />
                 <input type="text" name="FirstName" required /><br />
@@ -62,6 +62,10 @@
 
                 <label for="Password">Password</label><br />
                 <input type="password" name="Password" required /><br />
+
+                <label for="Image1">Profile Image</label><br />
+                <input type="file" name="Image1" required /><br />
+
 
                 <input type="submit" name="Submit" value="Join" />
             </form>
