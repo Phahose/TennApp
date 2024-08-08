@@ -259,7 +259,7 @@ header{
     height: 2.7rem;
     border-radius: 2rem;
 }
-.profile-nav ul li{
+.profile-nav .profile-switch li {
     display: flex;
     align-items: center;
     border-radius: 2rem;
@@ -271,6 +271,11 @@ header{
     margin:0;
     margin-right: 1rem;
 }
+
+
+
+
+/*Styling for Messages Page*/
 .message-view {
     background-color: #121112;
     height: 90vh;
@@ -318,4 +323,56 @@ header{
 }
 .message-list a{
     margin-right: 1rem;
+}
+
+
+
+/*Styling for Players Page*/
+.icon-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+}
+
+.yes-button {
+    color: #28a745; /* Green for Yes */
+}
+
+.no-button {
+    color: #dc3545; /* Red for No */
+}
+
+.icon-button:focus {
+    outline: none;
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+.tab-Nav{
+    display:flex;
+    margin: 0;
+}
+.tab-Nav li{
+    background-color: white;
+}
+.tab-Nav li:hover{
+   transition: 0.3s ease-in-out;
+   background-color: white;
+   border-bottom: 1px solid black;
+     transform: scale(1.1);
+}
+.tab-Nav a{
+    color: black;
 }
