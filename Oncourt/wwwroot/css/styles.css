@@ -125,6 +125,7 @@ header{
     .basicform input[type="email"],
     .basicform input[type="password"],
     .basicform input[type="text"],
+    .basicform input[type="file"],
     .basicform select
     {
         width: 100%;
@@ -366,12 +367,13 @@ header{
 }
 .tab-Nav li{
     background-color: white;
+    font-size: 1rem;
 }
 .tab-Nav li:hover{
    transition: 0.3s ease-in-out;
    background-color: white;
    border-bottom: 1px solid black;
-     transform: scale(1.1);
+  transform: scale(1.1);
 }
 .tab-Nav a{
     color: black;
