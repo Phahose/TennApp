@@ -1,35 +1,46 @@
 ﻿@page
 @model OnCourt.Pages.ProfileModel
 @{
+    Layout = "HomeHeader";
 }
 <div class="container">
-    <div>
-        <div>
-            Profile and some Functionalities
+    <div class="card-first-sec">
+        <div class="profile-nav">
+            <h3>Welcome Nick</h3>
+            <ul>
+                <li><a href="~/Profile"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>
+            </ul>
         </div>
         <div>
             <ul>
-                <li>Email</li>
-                <li>Phone Number</li>
-                <li>Age</li>
-                <li>Preferred Shot</li>
-                <li>Level </li>
-                <li>Sport </li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Phone Number</a></li>
+                <li><a href="#">Age</a></li>
+                <li><a href="#">Preferred Shot</a></li>
+                <li><a href="#">Level</a></li>
+                <li><a href="#">Sport</a></li>
             </ul>
         </div>
     </div>
-    <div>
-        <div>
-            <div class="card">
-               <div>
-                   <img src="~/img/myImage.jpg" />
-               </div>
-               <div>
-                   <h3>Nicholas</h3>
-                   <p>Intermediate</p>
-                   <p>Preferred Shot: Serve</p>
-               </div>
+    <div class="card-section">
+        <div class="card-container">
+            <div class="card swiper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"> <img src="~/img/myImage.jpg" alt="Image 1" /></div>
+                    <div class="swiper-slide"> <img src="~/img/myImage2.jpg" alt="Image 2" /></div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+
             </div>
-        </div>
+            <div class="card-info">
+                <h3>Nicholas</h3>
+                <p>Intermediate</p>
+                <p>Preferred Shot: Serve</p>
+            </div>
+        </div>     
     </div>
 </div>

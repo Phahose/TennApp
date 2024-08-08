@@ -1,0 +1,36 @@
+﻿@page
+@model OnCourt.Pages.MessagesModel
+@{
+    Layout = "HomeHeader";
+}
+<div class="container">
+    <div class="card-first-sec">
+        <div class="profile-nav">
+            <h3>Welcome Nick</h3>
+            <ul >
+                <li><a href="~/Profile"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="message-list">
+                <li><a href="#"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>
+                <li><a href="#"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>
+                <li><a href="#"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>
+                <li><a href="#"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>
+                <li><a href="#"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>               
+            </ul>
+        </div>
+    </div>
+    <div class="card-section">
+       <form name="Messages" class="message-form" method="post">
+           <div class="message-view">
+               Message Box
+           </div>
+           <div class="message-box">
+                <input type="text" name="Message" class="message-input" placeholder="Enter Your Message..."/>
+                <input type="submit" name="Submit" value="Send" class="send-button"/>
+           </div>
+        
+       </form>
+    </div>
+</div>

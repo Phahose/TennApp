@@ -151,3 +151,171 @@ header{
 .hide{
     display: none;
 }  
+
+
+
+
+/*Profile Styling*/
+.container {
+    display: flex;
+    background-color: #161617;
+    font-family: "Bruno Ace", sans-serif;
+    font-size: 15px;
+}
+.card {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s;
+    max-width: 20rem;
+    background-color: #121112;
+    padding: 1rem;
+    
+}
+.card-container {
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+}
+.card-info p{
+    color: grey;
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.card-section{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #121112;
+}
+.card-first-sec{
+    border: 1px solid white;
+    width:55%;
+    color: white;
+    max-width: 25rem;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar {
+    background-color: #121112;
+}
+::-webkit-scrollbar-thumb {
+    background: white;
+}
+.profile-nav{
+    color: black;
+    padding: 1rem;
+    background-color: white;
+}
+.card-first-sec ul {
+    list-style: none;
+    padding: 0
+}
+.card-first-sec li {
+    background-color: #2b2a2e;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+.card-first-sec a{
+    text-decoration: none;
+    color: white;
+}
+.card-first-sec li:hover{
+    background-color: black
+}
+.card-info{
+    padding: 0.5rem;
+}
+.card-info h3{
+    color: white;
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #ffffff !important;
+    width: 15px; /* Adjust the width to make the buttons shorter */
+    height: 15px; /* Adjust the height to make the buttons shorter */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+        background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+    }
+
+.profile-pic{
+    width:2.7rem;
+    height: 2.7rem;
+    border-radius: 2rem;
+}
+.profile-nav ul li{
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    width: 50%;
+    color: white;
+    padding-right: 0.5rem;
+}
+.profile-nav a{
+    margin:0;
+    margin-right: 1rem;
+}
+.message-view {
+    background-color: #121112;
+    height: 90vh;
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.message-form{
+    width: inherit;
+    height: inherit;
+}
+
+.message-input {
+    width: 80%;
+    padding: 0.7rem;
+    color: white;
+    background-color: #121112;
+    border: 1px solid white;
+    border-radius: 2rem;
+    margin: 0.5rem;
+    font-family: "Bruno Ace", sans-serif;
+}
+.message-input:focus{
+    border: 1px solid blue;
+}
+.message-box{
+    display: flex;
+    justify-content: center;
+}
+.send-button{
+    color: ghostwhite;
+    background-color: dimgrey;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+.send-button:hover{
+    background-color: #151617;
+}
+.message-list li{
+    display: flex;
+    align-items: center;
+}
+.message-list a{
+    margin-right: 1rem;
+}
