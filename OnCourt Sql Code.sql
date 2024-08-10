@@ -1,0 +1,44 @@
+CREATE DATABASE Oncourt
+
+-- DROP TABLE UserMedia
+-- DROP TABLE Users
+
+CREATE TABLE Users (
+    UserId INT PRIMARY KEY IDENTITY(1,1),
+    Email NVARCHAR(256) UNIQUE NOT NULL,
+	UserPassword NVARCHAR(256) NOT NULL,
+    PasswordHash NVARCHAR(256) NOT NULL,
+    FirstName NVARCHAR(100) NOT NULL,
+    LastName NVARCHAR(100) NOT NULL,
+    PhoneNumber NVARCHAR(20),
+    DateOfBirth DATE,
+    PreferredShot NVARCHAR(100),
+    SportLevel NVARCHAR(50),
+    Sport NVARCHAR(50),
+	Bio NVARCHAR(250),
+	Gender VARCHAR(50),
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE UserMedia (
+    MediaId INT PRIMARY KEY IDENTITY,
+    UserId INT FOREIGN KEY REFERENCES Users(UserId),
+    FilePath NVARCHAR(500) NOT NULL,
+    MediaType NVARCHAR(50) NOT NULL, -- E.g., 'image', 'video'
+    UploadedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Messages (
+    MessageId INT PRIMARY KEY IDENTITY,
+    SenderId INT FOREIGN KEY REFERENCES Users(UserId),
+    ReceiverId INT FOREIGN KEY REFERENCES Users(UserId),
+    Content NVARCHAR(MAX) NOT NULL,
+    SentAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Connections (
+    ConnectionId INT PRIMARY KEY IDENTITY,
+    UserId1 INT FOREIGN KEY REFERENCES Users(UserId),
+    UserId2 INT FOREIGN KEY REFERENCES Users(UserId),
+    ConnectedAt DATETIME DEFAULT GETDATE()
+);
