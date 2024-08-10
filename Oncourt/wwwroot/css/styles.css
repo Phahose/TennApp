@@ -205,9 +205,12 @@ header{
 }
 ::-webkit-scrollbar {
     background-color: #121112;
+    height: 0.5rem;
 }
 ::-webkit-scrollbar-thumb {
-    background: white;
+    background-color: darkgrey;
+    border-radius: 2rem;
+    width: 1rem;
 }
 .profile-nav{
     color: black;
