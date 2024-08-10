@@ -134,6 +134,7 @@ header{
         border: 1px solid #ccc;
         border-radius: 4px;
         font-family: "Bruno Ace", sans-serif;
+        margin-top: 1rem;
     }
 
 .basicform input[type="submit"] {
@@ -147,6 +148,11 @@ header{
     margin-top: 1rem;
     width: 100%;
     font-family: "Bruno Ace", sans-serif;
+    transition: 0.2s ease-in-out;
+}
+
+.basicform input[type="submit"]:hover{
+     transform: scale(1.05);
 }
 
 .hide{
