@@ -62,6 +62,9 @@ CREATE TABLE FileUploads (
 
 
 
+  DBCC CHECKIDENT ('Users', RESEED, 0);
+  DBCC CHECKIDENT ('UserMedia', RESEED, 0);
+
 CREATE PROCEDURE SignUp
     @FirstName NVARCHAR(100),
     @LastName NVARCHAR(100),
