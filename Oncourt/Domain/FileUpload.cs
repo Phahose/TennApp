@@ -2,12 +2,12 @@
 {
     public class FileUpload
     {
-       private int FileID {  get; set; }
-       private int UserId { get; set; }
-       private string FileName { get; set; } = string.Empty;
-       private string FileType { get; set; } = string.Empty;
-       private string FilePath { get; set; } = string.Empty;
-       private DateTime UploadedAt { get; set; }
+       public int FileID {  get; set; }
+       public int UserId { get; set; }
+       public string FileName { get; set; } = string.Empty;
+       public string FileType { get; set; } = string.Empty;
+       public string FilePath { get; set; } = string.Empty;
+       public DateTime UploadedAt { get; set; }
 
     } 
 }

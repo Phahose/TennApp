@@ -2,10 +2,10 @@
 {
     public class UserMedia
     {
-        private int MediaId { get; set; }
-        private int UserId { get; set; }
-        private string FilePath { get; set; } = string.Empty;
-        private string MediaType { get; set; } = string.Empty;
-        private DateTime CreatedDate { get; set; }
+        public int MediaId { get; set; }
+        public int UserId { get; set; }
+        public string FilePath { get; set; } = string.Empty;
+        public string MediaType { get; set; } = string.Empty;
+        public DateTime CreatedDate { get; set; }
     }
 }

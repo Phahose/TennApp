@@ -2,7 +2,7 @@
 {
     public class Sport
     {
-        private int SportId { get; set; }
-        private string SportName { get; set; } = string.Empty;
+        public int SportId { get; set; }
+        public string SportName { get; set; } = string.Empty;
     }
 }
