@@ -127,10 +127,75 @@ namespace OnCourt.TechnicalServices
             return  confirmation;
         }
 
+        public User GetOneUser(string email)
+        {
+            User aUser = new();
+            SqlConnection onCourtConnection = new();
+            onCourtConnection.ConnectionString = connectionString;
+            onCourtConnection.Open();
+
+            try
+            {
+                SqlCommand GetUserCommand = new()
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GetOneUser",
+                    Connection = onCourtConnection,
+                };
+
+                SqlParameter EmailParameter = new()
+                {
+                    ParameterName = "@Email",
+                    SqlDbType = SqlDbType.NVarChar,
+                    SqlValue = email,
+                    Direction = ParameterDirection.Input,
+                };
+
+                GetUserCommand.Parameters.Add(EmailParameter);
+
+                SqlDataReader GetOneUserReader = GetUserCommand.ExecuteReader();
+                while (GetOneUserReader.Read())
+                {
+                    if (GetOneUserReader.HasRows)
+                    {
+                        aUser = new User()
+                        {
+                            FirstName = GetOneUserReader["FirstName"] != DBNull.Value ? (string)GetOneUserReader["FirstName"] : string.Empty,
+                            LastName = GetOneUserReader["LastName"] != DBNull.Value ? (string)GetOneUserReader["LastName"] : string.Empty,
+                            Email = GetOneUserReader["Email"] != DBNull.Value ? (string)GetOneUserReader["Email"] : string.Empty,
+                            Password = GetOneUserReader["UserPassword"] != DBNull.Value ? (string)GetOneUserReader["UserPassword"] : string.Empty,
+                            PasswordSalt = GetOneUserReader["PasswordHash"] != DBNull.Value ? (string)GetOneUserReader["PasswordHash"] : string.Empty,
+                            // Adjust type casting and default value for PhoneNumber if it's nullable
+                            PhoneNumber = GetOneUserReader["PhoneNumber"] != DBNull.Value ? (int)GetOneUserReader["PhoneNumber"] : 0,
+                            DateOfBirth = GetOneUserReader["DateOfBirth"] != DBNull.Value ? (DateTime)GetOneUserReader["DateOfBirth"] : default(DateTime),
+                            PreferredShot = GetOneUserReader["PreferredShot"] != DBNull.Value ? (string)GetOneUserReader["PreferredShot"] : string.Empty,
+                            SportLevel = GetOneUserReader["SportLevel"] != DBNull.Value ? (string)GetOneUserReader["SportLevel"] : string.Empty,
+                            Sport = GetOneUserReader["Sport"] != DBNull.Value ? (string)GetOneUserReader["Sport"] : string.Empty,
+                            Bio = GetOneUserReader["Bio"] != DBNull.Value ? (string)GetOneUserReader["Bio"] : string.Empty,
+                            Gender = GetOneUserReader["Gender"] != DBNull.Value ? (string)GetOneUserReader["Gender"] : string.Empty,
+                            // Handle CreatedAt as nullable or provide default value
+                            CreatedAt = GetOneUserReader["CreatedAt"] != DBNull.Value ? (DateTime)GetOneUserReader["CreatedAt"] : default(DateTime)
+
+                        };
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
+            return aUser;
+        }
+
         private static byte[] HashPasswordWithSalt(string password, byte[] salt)
         {
             // Hash the password with PBKDF2 using HMACSHA256
             return new Rfc2898DeriveBytes(password, salt, 100000, HashAlgorithmName.SHA256).GetBytes(32);
         }
+
     }
 }

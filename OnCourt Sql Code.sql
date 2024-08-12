@@ -126,6 +126,22 @@ BEGIN
         Users;
 END;
 
+CREATE PROCEDURE GetOneUser
+   @Email NVARCHAR(256)
+AS
+BEGIN
+    -- Select all users from the Users table
+    SELECT 
+        *
+    FROM 
+        Users
+    WHERE Email = @Email
+
+END;
+
+
+
+
 
 CREATE PROCEDURE GetUserWithMedia
     @UserId INT

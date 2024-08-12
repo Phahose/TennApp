@@ -14,6 +14,7 @@
         public string Sport {  get; set; } = string.Empty;
         public string Bio { get; set; } = string.Empty;    
         public string Gender { get; set; } = string.Empty;
+        public int PhoneNumber {  get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

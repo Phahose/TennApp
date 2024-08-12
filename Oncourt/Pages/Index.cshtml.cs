@@ -1,9 +1,13 @@
-#nullable disable
+﻿#nullable disable
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OnCourt.Domain;
 using OnCourt.TechnicalServices;
+using System.Security.Claims;
+using System.Security.Cryptography;
 
 namespace nekwom.Pages
 {
@@ -25,55 +29,162 @@ namespace nekwom.Pages
         public string Submit { get; set; } = string.Empty;
         public User NewUser { get; set; }
         public UserMedia UserMedia {  get; set; }
+        public string ErrorMessage { get; set; }
+        public string SuccessMessage { get; set; }
         public void OnGet()
         {
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            Users users = new Users();
+            Users usersController = new Users();
             if (Submit == "Join")
             {
-                if (Image1 != null)
+                // Test if the Email Is Already Used
+                User testUser = usersController.GetOneUser(Email);
+
+                if (testUser.FirstName == null)
                 {
-                    try
+                    if (Image1 != null)
                     {
-                        // Upload the profile image and get the file path
-                        var filePath = await UploadProfileImage(Image1);
-
-                        // Create NewUser and UserMedia
-                        NewUser = new User
+                        try
                         {
-                            FirstName = FirstName,
-                            LastName = LastName,
-                            Email = Email,
-                            Password = Password,
-                            Sport = Sport,
-                        };
+                            // Upload the profile image and get the file path
+                            var filePath = await UploadProfileImage(Image1);
 
-                        UserMedia = new UserMedia
+                            // Create NewUser and UserMedia
+                            NewUser = new User
+                            {
+                                FirstName = FirstName,
+                                LastName = LastName,
+                                Email = Email,
+                                Password = Password,
+                                Sport = Sport,
+                            };
+
+                            UserMedia = new UserMedia
+                            {
+                                FilePath = filePath
+                            };
+
+                            // Add user and media to the database
+                            usersController.AddUser(NewUser, UserMedia);
+
+                            // Redirect or return success
+                            return RedirectToPage("/Index");
+                        }
+                        catch (Exception ex)
                         {
-                            FilePath = filePath
-                        };
-
-                        // Add user and media to the database
-                        users.AddUser(NewUser, UserMedia);
-
-                        // Redirect or return success
-                        return RedirectToPage("/Index");
+                            // Handle exceptions, e.g., log the error
+                            return StatusCode(500, "Internal server error: " + ex.Message);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        // Handle exceptions, e.g., log the error
-                        return StatusCode(500, "Internal server error: " + ex.Message);
+                        // IF there is No Image Provided   
+                        ErrorMessage = "A profile Picture is Mandatory";
+                        return Page();
+                    }
+                    
+                }
+                else
+                {
+                    ErrorMessage = "This Email is Alredy Used";
+                    return Page();
+                }
+            }
+            else if (Submit == "Enter")
+            {
+                User loginUser = usersController.GetOneUser(Email);
+
+                // Convert DB Data Back to byte[] form because they werr stored in the DB as strings
+                byte[] salt = Convert.FromBase64String(loginUser.PasswordSalt);
+                byte[] storedHashedpassword = Convert.FromBase64String(loginUser.Password);
+
+                // Convert user Input to byte[] hash and then to strings
+                byte[] enteredHashedPassword = HashPasswordWithSalt(Password, salt);
+                string enteredHashedPasswordBase64 = Convert.ToBase64String(enteredHashedPassword);
+
+                Password = enteredHashedPasswordBase64;
+
+                string UserEmail = loginUser.Email;
+                //string UserRole = existingUser.Role;
+                string UserPassword = loginUser.Password;
+                string UserSalt = loginUser.PasswordSalt;
+
+                if (Email == UserEmail)
+                {
+                    // Compare the Two arrays and not the Hashed Figures
+                    if (ByteArraysAreEqual(storedHashedpassword, enteredHashedPassword))
+                    {
+                        var claims = new List<Claim>
+                            {
+                                new Claim(ClaimTypes.Email, Email),
+                            };
+                        var claimsIdentity = new ClaimsIdentity(claims,
+                        CookieAuthenticationDefaults.AuthenticationScheme);
+                        AuthenticationProperties authProperties = new AuthenticationProperties
+                        {
+                            #region
+                            //AllowRefresh = <bool>,
+                            // Refreshing the authentication session should be allowed.
+                            //ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
+                            // The time at which the authentication ticket expires. A
+                            // value set here overrides the ExpireTimeSpan option of
+                            // CookieAuthenticationOptions set with AddCookie.
+                            //IsPersistent = true,
+                            // Whether the authentication session is persisted across
+                            // multiple requests. When used with cookies, controls
+                            // whether the cookie's lifetime is absolute (matching the
+                            // lifetime of the authentication ticket) or session‐based.
+                            //IssuedUtc = <DateTimeOffset>,
+                            // The time at which the authentication ticket was issued.
+                            //RedirectUri = <string>
+                            // The full path or absolute URI to be used as an http
+                            // redirect response value.
+                            #endregion
+                        };
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity), authProperties);
+                        SuccessMessage = "Login Success";
+                        HttpContext.Session.SetString("Email", Email);
+
+                        return RedirectToPage("/Profile");
+                        
+
                     }
                 }
 
-                return BadRequest("No image provided.");
             }
 
-            return BadRequest("Invalid submit action.");
+             return BadRequest("Invalid submit action.");           
         }
 
+
+
+
+
+
+
+        // Hashes the Enterd password with the same hashing algorithm that was used to Hash them into the DB
+        private static byte[] HashPasswordWithSalt(string password, byte[] salt)
+        {
+            // Hash the password with PBKDF2 using HMACSHA256
+            return new Rfc2898DeriveBytes(password, salt, 100000, HashAlgorithmName.SHA256).GetBytes(32);
+        }
+
+        private bool ByteArraysAreEqual(byte[] a, byte[] b)
+        {
+            if (a == null || b == null || a.Length != b.Length)
+                return false;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] != b[i])
+                    return false;
+            }
+
+            return true;
+        }
 
         public async Task<string> UploadProfileImage(IFormFile profileImage)
         {
