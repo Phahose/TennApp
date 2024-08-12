@@ -14,6 +14,16 @@
         <div class="login-container">
            
             <form class="basicform" name="LoginForm" method="post">
+
+                @if (Model.ErrorMessage != null)
+                {
+                    <h5 class="errormessage">@Model.ErrorMessage</h5>
+                }
+                @if (Model.SuccessMessage != null)
+                {
+                    <h5 class="successMessage">@Model.SuccessMessage</h5>
+                }
+
                 <label for="Email">Email</label><br />
                 <input type="email" name="Email" required /><br />
                 <label for="Password">Password</label><br />
@@ -33,6 +43,14 @@
         <div class="login-container">
            
             <form class="basicform" name="LoginForm" method="post" enctype="multipart/form-data">
+                @if (Model.ErrorMessage != null)
+                {
+                    <h5 class="errormessage">@Model.ErrorMessage</h5>
+                }
+                @if (Model.SuccessMessage != null)
+                {
+                    <h5 class="successMessage">@Model.SuccessMessage</h5>
+                }
 
                 <label for="FirstName">FirstName</label><br />
                 <input type="text" name="FirstName" required /><br />

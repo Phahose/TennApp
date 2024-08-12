@@ -42,7 +42,7 @@ namespace nekwom.Pages
                 // Test if the Email Is Already Used
                 User testUser = usersController.GetOneUser(Email);
 
-                if (testUser.FirstName == null)
+                if (testUser.FirstName == "")
                 {
                     if (Image1 != null)
                     {
@@ -70,6 +70,7 @@ namespace nekwom.Pages
                             usersController.AddUser(NewUser, UserMedia);
 
                             // Redirect or return success
+                            SuccessMessage = "Sign Up Successfull You can Now Proceed to Login";
                             return RedirectToPage("/Index");
                         }
                         catch (Exception ex)
@@ -81,14 +82,14 @@ namespace nekwom.Pages
                     else
                     {
                         // IF there is No Image Provided   
-                        ErrorMessage = "A profile Picture is Mandatory";
+                        ErrorMessage = "Sign Up Failed ~ A profile Picture is Mandatory";
                         return Page();
                     }
                     
                 }
                 else
                 {
-                    ErrorMessage = "This Email is Alredy Used";
+                    ErrorMessage = "Sign Up Failed ~ This Email is Alredy Used";
                     return Page();
                 }
             }
@@ -153,6 +154,10 @@ namespace nekwom.Pages
 
                     }
                 }
+
+                ErrorMessage = "Login Failed Invalid Email Or Passoword";
+                return Page();
+
 
             }
 

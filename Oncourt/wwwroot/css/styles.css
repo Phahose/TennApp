@@ -95,8 +95,10 @@ header{
         padding: 1rem;
         width: 50%;
     }
-    .login-div p{
+    .login-div p {
         color: white;
+        font-family: "Bruno Ace", sans-serif;
+        font-size: 0.7rem;
     }
 .login-div div:nth-child(2){
     margin-top: 1rem;
@@ -157,11 +159,16 @@ header{
 
 .hide{
     display: none;
-}  
+}
 
-
-
-
+.errormessage {
+    color: red;
+    font-family: "Bruno Ace", sans-serif;
+}
+.successMessage {
+    color: limegreen;
+    font-family: "Bruno Ace", sans-serif;
+}
 /*Profile Styling*/
 .container {
     display: flex;
