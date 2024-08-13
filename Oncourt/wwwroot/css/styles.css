@@ -421,3 +421,115 @@ header{
     border-radius: 1rem;
     color: white;
 }
+
+
+/*Account Info Page*/
+.account-info-form {
+    padding: 1rem;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    background-color: #202224;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 40rem;
+}
+
+    .account-info-form input[type="text"],
+    .account-info-form input[type="email"],
+    .account-info-form input[type="password"],
+    .account-info-form input[type="file"],
+    .account-info-form input[type="tel"],
+    .account-info-form select 
+    {
+        background-color: inherit;
+        border: none;
+        border-bottom: 1px solid white;
+        color: white;
+        margin: 1rem 1rem; 
+        width: 12rem;
+        padding: 0.5rem; 
+        font-family: "Bruno Ace", sans-serif; 
+    }
+    .account-info-form option {
+        background-color: #202224;
+    }
+
+        .account-info-form input[type="text"]:focus,
+        .account-info-form input[type="email"]:focus,
+        .account-info-form input[type="password"]:focus, 
+        .account-info-form input[type="tel"]:focus
+        {
+            background-color: #202224;
+            border-bottom: 1px solid brown;
+            outline: none;
+        }
+
+    .account-info-form select {
+        background-color: inherit;
+        color: white;
+        border: none;
+        border-bottom: 1px solid white;
+        width: 14rem;
+        padding: 0.5rem;
+        font-family: "Bruno Ace", sans-serif; 
+    }
+
+.flex-form{
+    display:flex;
+    justify-content:space-between;
+    width: 100%;
+    max-width: 35rem;
+    margin: 1rem;
+}
+.flex-form label{
+    padding: 0 1rem;
+}
+
+.image-upload-container {
+    width: 60%;
+    margin-top: 0rem;
+    justify-content: space-between;
+    max-width: 35rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.file-icon {
+    width: 4rem;
+    border-radius: 1rem;
+    margin: 0;
+}
+.hero {
+    border: 1px solid white;
+    width: fit-content;
+    border-radius: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    height: 6rem;
+}
+.image-inputholder{
+    display:flex;
+}
+
+.account-info-form input[type="submit"] {
+    padding: 0.5rem;
+    margin: 1rem;
+    width: 58%;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    font-family: "Bruno Ace", sans-serif;
+    transition: 0.2s ease-in-out;
+}
+.account-info-form input[type="submit"]:hover {
+    transform: scale(1.1);
+}

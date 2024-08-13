@@ -2,13 +2,14 @@
 @model OnCourt.Pages.RequestsModel
 @{
     Layout = "HomeHeader";
+    ViewBag.Title = "Requests";
 }
 <div class="container">
     <div class="card-first-sec">
         <div class="profile-nav">
             <h3>Welcome Nick</h3>
             <ul class="profile-switch">
-                <li><a href="~/Profile"><img src="~/img/myImage2.jpg" alt="Image 2" class="profile-pic" /></a>Nicholas</li>
+                <li><a href="~/Profile"><img src="@Model.UserMedia[0].FilePath" alt="Image 2" class="profile-pic" /></a>@Model.NewUser.FirstName</li>
             </ul>
             <ul class="tab-Nav">
                 <li><a href="~/Messages">Messages</a></li>
@@ -18,12 +19,13 @@
         </div>
         <div>
             <ul>
-                <li><a href="#">Email</a></li>
-                <li><a href="#">Phone Number</a></li>
+                <li><a href="#">Email: @Model.NewUser.Email</a></li>
+                <li><a href="#">Phone Number @Model.NewUser.PhoneNumber</a></li>
                 <li><a href="#">Age</a></li>
-                <li><a href="#">Preferred Shot</a></li>
-                <li><a href="#">Level</a></li>
-                <li><a href="#">Sport</a></li>
+                <li><a href="#">Preferred Shot: @Model.NewUser.PreferredShot</a></li>
+                <li><a href="#">Level: @Model.NewUser.SportLevel</a></li>
+                <li><a href="#">Sport: @Model.NewUser.Sport</a></li>
+                <li><a href="/AccountInfo">Profile Settings</a></li>
             </ul>
         </div>
     </div>

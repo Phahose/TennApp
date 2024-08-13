@@ -1,0 +1,158 @@
+﻿@page
+@model OnCourt.Pages.AccountInfoModel
+@{
+    Layout = "HomeHeader";
+    ViewBag.Title = "Account Info";
+}
+<div class="container">
+    <div class="card-first-sec">
+        <div class="profile-nav">
+            <h3>Welcome Nick</h3>
+            <ul class="profile-switch">
+                <li><a href="~/Profile"><img src="@Model.UserMedia[0].FilePath" alt="Image 2" class="profile-pic" /></a>@Model.NewUser.FirstName</li>
+            </ul>
+            <ul class="tab-Nav">
+                <li><a href="~/Messages">Messages</a></li>
+                <li><a href="~/Players">Players</a></li>
+                <li><a href="~/Requests">Requests</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Email: @Model.NewUser.Email</a></li>
+                <li><a href="#">Phone Number @Model.NewUser.PhoneNumber</a></li>
+                <li><a href="#">Age</a></li>
+                <li><a href="#">Preferred Shot: @Model.NewUser.PreferredShot</a></li>
+                <li><a href="#">Level: @Model.NewUser.SportLevel</a></li>
+                <li><a href="#">Sport: @Model.NewUser.Sport</a></li>
+                <li><a href="/AccountInfo">Profile Settings</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-section">
+        <form name="Messages" class="account-info-form" method="post" enctype="multipart/form-data">
+            <div class="flex-form">
+                <div>
+                    <label for="FirstName">FirstName</label><br />
+                    <input type="text" name="FirstName" required /><br />
+                </div>
+              
+                <div>
+                    <label for="LastName">LastName</label><br />
+                    <input type="text" name="LastName" required /><br />
+                </div>
+                           
+            </div>
+
+            <div class="flex-form">
+                <div>
+                    <label for="Email">Email</label><br />
+                    <input type="email" name="Email" required /><br />
+                </div>
+                
+                <div>
+                    <label for="Password">Password</label><br />
+                    <input type="password" name="Password" required /><br />
+                </div>                
+            </div>
+            
+            <div class="flex-form">
+                <div>
+                    <label for="Sport">Sport</label><br />
+                    <select id="sport" name="Sport" required>
+                        <option value="" disabled selected>Select your Sport</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Pickeball">Pickleball</option>
+                        <option value="Badminton">Badminton</option>
+                    </select><br />
+                </div>
+
+               <div>
+                    <label for="Level">Sport Level</label><br />
+                    <select id="level" name="Level" required>
+                        <option value="" disabled selected>Select your Level</option>
+                        <option value="Beginner">Beginner(0.0 - 2.0)</option>
+                        <option value="Intermediate">Intermediate (3.0 - 4.0)</option>
+                        <option value="Semi Pro">Semi Pro (5.0)</option>
+                        <option value="Professional">Professional (Open Level - )</option>
+                    </select><br />
+                </div>
+              
+            </div>
+            <div class="flex-form">
+                <div>
+                    <label for="Level">Prefered Shot</label><br />
+                    <select id="level" name="Level" required>
+                        <option value="" disabled selected>Select your Best Shot</option>
+                        <option value="Serve">Serve</option>
+                        <option value="Forehand">ForeHand</option>
+                        <option value="BackHand">Back Hand</option>
+                        <option value="Volleys">Volleys</option>
+                    </select><br />
+                </div>
+
+                <div>
+                    <label for="PhoneNumber">PhoneNumber</label><br />
+                    <input type="tel" name="PhoneNumber" required /><br />
+                </div>
+            </div>
+            
+            <fieldset class="image-upload-container">
+                <legend>Profile Images</legend>
+                    <div class="image-inputholder">
+                        <fieldset class="hero">
+                            <legend>+</legend>
+                            <label for="Image1" id="som">
+                                <input type="file" name="Image1" id="Image1" hidden required />
+                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            </label><br />
+                        </fieldset>
+
+                        <fieldset class="hero">
+                            <legend>+</legend>
+                            <label for="Image2" id="som">
+                                <input type="file" name="Image3" id="Image2" hidden required />
+                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            </label><br />
+                        </fieldset>
+
+                        <fieldset class="hero">
+                            <legend>+</legend>
+                            <label for="Image3" id="som">
+                                <input type="file" name="Image3" id="Image3" hidden required />
+                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            </label><br />
+                        </fieldset>
+                    </div>
+
+                    <div class="image-inputholder">
+                        <fieldset class="hero">
+                            <legend>+</legend>
+                            <label for="Image4" id="som">
+                                <input type="file" name="Image4" id="Image4" hidden required />
+                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            </label><br />
+                        </fieldset>
+
+                        <fieldset class="hero">
+                            <legend>+</legend>
+                            <label for="Image5" id="som">
+                                <input type="file" name="Image5" id="Image5" hidden required />
+                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            </label><br />
+                        </fieldset>
+
+                        <fieldset class="hero">
+                            <legend>+</legend>
+                            <label for="Image6" id="som">
+                                <input type="file" name="Image6" id="Image6" hidden required />
+                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            </label><br />
+                        </fieldset>
+
+                    </div>
+            </fieldset>
+            <input type="submit" name="Submit" value="Join" />
+        </form>
+    </div>
+</div>

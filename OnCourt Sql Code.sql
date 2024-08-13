@@ -194,6 +194,23 @@ BEGIN
 END;
 
 
+CREATE PROCEDURE GetUserMedia
+     @UserId INT
+AS 
+BEGIN
+   SELECT
+		MediaId,
+		UserId,
+		FilePath,
+		MediaType,
+		UploadedAt
+   FROM
+		UserMedia
+	WHERE 
+		UserId = @UserId
+END
+  
+
 CREATE PROCEDURE GetConversation
     @UserId1 INT,
     @UserId2 INT
@@ -214,3 +231,67 @@ BEGIN
     ORDER BY 
         m.SentAt;
 END;
+
+
+
+CREATE PROCEDURE UpdateUser
+    @UserId INT,
+    @FirstName NVARCHAR(100),
+    @LastName NVARCHAR(100),
+    @Email NVARCHAR(256),
+    @UserPassword NVARCHAR(256),
+    @PasswordHash NVARCHAR(256),
+    @PhoneNumber NVARCHAR(20),
+    @DateOfBirth DATE,
+    @PreferredShot NVARCHAR(100),
+    @SportLevel NVARCHAR(50),
+    @Sport NVARCHAR(50),
+    @Bio NVARCHAR(250),
+    @Gender VARCHAR(50)
+AS
+BEGIN
+    UPDATE Users
+    SET
+        FirstName = @FirstName,
+        LastName = @LastName,
+        Email = @Email,
+        UserPassword = @UserPassword,
+        PasswordHash = @PasswordHash,
+        PhoneNumber = @PhoneNumber,
+        DateOfBirth = @DateOfBirth,
+        PreferredShot = @PreferredShot,
+        SportLevel = @SportLevel,
+        Sport = @Sport,
+        Bio = @Bio,
+        Gender = @Gender
+    WHERE
+        UserId = @UserId;
+END
+
+
+CREATE PROCEDURE UpsertUserMedia
+    @UserId INT,
+    @MediaId INT, -- Required parameter to identify the media
+    @FilePath NVARCHAR(500),
+    @MediaType NVARCHAR(50) -- E.g., 'image', 'video'
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Check if media already exists
+    IF EXISTS (SELECT 1 FROM UserMedia WHERE MediaId = @MediaId)
+    BEGIN
+        -- Update existing media
+        UPDATE UserMedia
+        SET FilePath = @FilePath,
+            MediaType = @MediaType,
+            UploadedAt = GETDATE()
+        WHERE MediaId = @MediaId;
+    END
+    ELSE
+    BEGIN
+        -- Insert new media
+        INSERT INTO UserMedia (UserId, FilePath, MediaType, UploadedAt)
+        VALUES (@UserId, @FilePath, @MediaType, GETDATE());
+    END
+END
