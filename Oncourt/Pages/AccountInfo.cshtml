@@ -102,25 +102,25 @@
                     <div class="image-inputholder">
                         <fieldset class="hero">
                             <legend>+</legend>
-                            <label for="Image1" id="som">
-                                <input type="file" name="Image1" id="Image1" hidden required />
-                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            <label for="Image1" class="drop-area">
+                                <input type="file" name="Image1" id="Image1" accept="image/*" hidden required class="file-input"  />
+                                <img src="~/img/image-upload.png" class="file-icon">
                             </label><br />
                         </fieldset>
 
                         <fieldset class="hero">
                             <legend>+</legend>
-                            <label for="Image2" id="som">
-                                <input type="file" name="Image3" id="Image2" hidden required />
-                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            <label for="Image2" class="drop-area">
+                                <input type="file" name="Image3" id="Image2" accept="image/*" hidden required class="file-input" />
+                                <img src="~/img/image-upload.png" class="file-icon">
                             </label><br />
                         </fieldset>
 
                         <fieldset class="hero">
                             <legend>+</legend>
-                            <label for="Image3" id="som">
-                                <input type="file" name="Image3" id="Image3" hidden required />
-                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            <label for="Image3" class="drop-area">
+                                <input type="file" name="Image3" id="Image3" accept="image/*" hidden required class="file-input" />
+                                <img src="~/img/image-upload.png" class="file-icon">
                             </label><br />
                         </fieldset>
                     </div>
@@ -128,25 +128,25 @@
                     <div class="image-inputholder">
                         <fieldset class="hero">
                             <legend>+</legend>
-                            <label for="Image4" id="som">
-                                <input type="file" name="Image4" id="Image4" hidden required />
-                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            <label for="Image4" class="drop-area">
+                                <input type="file" name="Image4" id="Image4" accept="image/*" hidden required class="file-input" />
+                                <img src="~/img/image-upload.png" class="file-icon">
                             </label><br />
                         </fieldset>
 
                         <fieldset class="hero">
                             <legend>+</legend>
-                            <label for="Image5" id="som">
-                                <input type="file" name="Image5" id="Image5" hidden required />
-                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            <label for="Image5" class="drop-area">
+                                <input type="file" name="Image5" id="Image5" accept="image/*" hidden required class="file-input" />
+                                <img src="~/img/image-upload.png" class="file-icon">
                             </label><br />
                         </fieldset>
 
                         <fieldset class="hero">
                             <legend>+</legend>
-                            <label for="Image6" id="som">
-                                <input type="file" name="Image6" id="Image6" hidden required />
-                                <img src="~/img/myImage2.jpg" class="file-icon">
+                            <label for="Image6" class="drop-area">
+                                <input type="file" name="Image6" id="Image6" accept="image/*" hidden required class="file-input" />
+                                <img src="~/img/image-upload.png" class="file-icon">
                             </label><br />
                         </fieldset>
 
@@ -156,3 +156,33 @@
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    // Get all elements with the class 'file-input'
+    const fileInputs = document.getElementsByClassName("file-input");
+    // Get all <img> elements inside .hero fieldsets
+    const imageElements = document.querySelectorAll(".hero img");
+
+    // Check if lengths match
+    if (fileInputs.length !== imageElements.length) {
+        console.error('The number of file inputs and image elements do not match.');
+    }
+
+    // Loop through file inputs and add event listeners
+    for (let i = 0; i < fileInputs.length; i++) {
+        fileInputs[i].addEventListener("change", function () {
+            // Only update if a file is selected
+            if (fileInputs[i].files.length > 0) {
+                const file = fileInputs[i].files[0];
+                const imgLink = URL.createObjectURL(file);
+
+                // Update the <img> element's src attribute
+                if (imageElements[i]) {
+                    imageElements[i].src = imgLink;
+                }
+            }
+        });
+    }
+
+</script>
+
