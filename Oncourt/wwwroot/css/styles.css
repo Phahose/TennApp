@@ -209,6 +209,7 @@ header{
     background-color: #121112;
     height:fit-content;
     padding: 2rem 1rem;
+    min-height: 100vh;
 }
 .card-first-sec{
     width:55%;
