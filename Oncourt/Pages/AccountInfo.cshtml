@@ -20,7 +20,10 @@
         <div>
             <ul>
                 <li><a href="#">Email: @Model.NewUser.Email</a></li>
-                <li><a href="#">Phone Number @Model.NewUser.PhoneNumber</a></li>
+                @if (Model.NewUser.PhoneNumber != 0)
+                {
+                    <li><a href="#">Phone Number: @Model.NewUser.PhoneNumber</a></li>
+                }
                 <li><a href="#">Age</a></li>
                 <li><a href="#">Preferred Shot: @Model.NewUser.PreferredShot</a></li>
                 <li><a href="#">Level: @Model.NewUser.SportLevel</a></li>
@@ -34,66 +37,130 @@
             <div class="flex-form">
                 <div>
                     <label for="FirstName">FirstName</label><br />
-                    <input type="text" name="FirstName" required /><br />
+                    <input type="text" name="FirstName" value="@Model.NewUser.FirstName" required /><br />
                 </div>
               
                 <div>
                     <label for="LastName">LastName</label><br />
-                    <input type="text" name="LastName" required /><br />
+                    <input type="text" name="LastName" value="@Model.NewUser.LastName" required /><br />
                 </div>
                            
             </div>
 
             <div class="flex-form">
                 <div>
-                    <label for="Email">Email</label><br />
-                    <input type="email" name="Email" required /><br />
+                    <label for="Bio">Email</label><br />
+                    <textarea name="Bio" value="@Model.NewUser.Bio" required>
+
+                    </textarea><br />
                 </div>
-                
+            </div>
+
+            <div class="flex-form">
                 <div>
+                    <label for="Email">Email</label><br />
+                    <input type="email" name="Email" value="@Model.NewUser.Email" required /><br />
+                </div>
+
+                @if (Model.NewUser.Gender !="")
+                {
+                    <div>
+                        <label for="Sport">Gender</label><br />
+                        <select id="sport" name="Sport" required>
+                            <option value="" disabled selected>@Model.NewUser.Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select><br />
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <label for="Sport">Gender</label><br />
+                        <select id="sport" name="Sport" required>
+                            <option value="" disabled selected>Select Your Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select><br />
+                    </div>
+                }
+
+              @*   <div>
                     <label for="Password">Password</label><br />
-                    <input type="password" name="Password" required /><br />
-                </div>                
+                    <input type="password" name="Password" value="@Model.NewUser.Password" required /><br />
+                </div>  *@               
             </div>
             
             <div class="flex-form">
                 <div>
                     <label for="Sport">Sport</label><br />
                     <select id="sport" name="Sport" required>
-                        <option value="" disabled selected>Select your Sport</option>
+                        <option value="" disabled selected>@Model.NewUser.Sport</option>
                         <option value="Tennis">Tennis</option>
                         <option value="Pickeball">Pickleball</option>
                         <option value="Badminton">Badminton</option>
                     </select><br />
                 </div>
 
-               <div>
-                    <label for="Level">Sport Level</label><br />
-                    <select id="level" name="Level" required>
-                        <option value="" disabled selected>Select your Level</option>
-                        <option value="Beginner">Beginner(0.0 - 2.0)</option>
-                        <option value="Intermediate">Intermediate (3.0 - 4.0)</option>
-                        <option value="Semi Pro">Semi Pro (5.0)</option>
-                        <option value="Professional">Professional (Open Level - )</option>
-                    </select><br />
-                </div>
-              
+                @if (Model.NewUser.SportLevel != "")
+                {
+                    <div>
+                        <label for="Level">Sport Level</label><br />
+                        <select id="level" name="SportLevel" required>
+                            <option value="" disabled selected>@Model.NewUser.SportLevel</option>
+                            <option value="Beginner">Beginner(0.0 - 2.0)</option>
+                            <option value="Intermediate">Intermediate (3.0 - 4.0)</option>
+                            <option value="Semi Pro">Semi Pro (5.0)</option>
+                            <option value="Professional">Professional (Open Level - )</option>
+                        </select><br />
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <label for="Level">Sport Level</label><br />
+                        <select id="level" name="Level" required>
+                            <option value="" disabled selected>Pick Your Level</option>
+                            <option value="Beginner">Beginner(0.0 - 2.0)</option>
+                            <option value="Intermediate">Intermediate (3.0 - 4.0)</option>
+                            <option value="Semi Pro">Semi Pro (5.0)</option>
+                            <option value="Professional">Professional (Open Level - )</option>
+                        </select><br />
+                    </div>
+                }
+
             </div>
             <div class="flex-form">
-                <div>
-                    <label for="Level">Prefered Shot</label><br />
-                    <select id="level" name="Level" required>
-                        <option value="" disabled selected>Select your Best Shot</option>
-                        <option value="Serve">Serve</option>
-                        <option value="Forehand">ForeHand</option>
-                        <option value="BackHand">Back Hand</option>
-                        <option value="Volleys">Volleys</option>
-                    </select><br />
-                </div>
+                @if (Model.NewUser.PreferredShot != "")
+                {
+                    <div>
+                        <label for="Level">Prefered Shot</label><br />
+                        <select id="level" name="PreferedShot" required>
+                            <option value="" disabled selected>@Model.NewUser.PreferredShot</option>
+                            <option value="Serve">Serve</option>
+                            <option value="Forehand">ForeHand</option>
+                            <option value="BackHand">Back Hand</option>
+                            <option value="Volleys">Volleys</option>
+                        </select><br />
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <label for="Level">Prefered Shot</label><br />
+                        <select id="level" name="PreferedShot" required>
+                            <option value="" disabled selected>Select Your Best Shot</option>
+                            <option value="Serve">Serve</option>
+                            <option value="Forehand">ForeHand</option>
+                            <option value="BackHand">Back Hand</option>
+                            <option value="Volleys">Volleys</option>
+                        </select><br />
+                    </div>
+                }
 
                 <div>
                     <label for="PhoneNumber">PhoneNumber</label><br />
-                    <input type="tel" name="PhoneNumber" required /><br />
+                    <input type="tel" name="PhoneNumber" value="@Model.NewUser.PhoneNumber" required /><br />
                 </div>
             </div>
             

@@ -207,14 +207,16 @@ header{
     height: 100vh;
     width: 100%;
     background-color: #121112;
+    height:fit-content;
+    padding: 2rem 1rem;
 }
 .card-first-sec{
-    border: 1px solid white;
     width:55%;
     color: white;
     max-width: 25rem;
     min-width: 20rem;
-    overflow-y: scroll;
+    overflow-y: auto;
+    height:fit-content;
 }
 ::-webkit-scrollbar {
     background-color: #121112;
@@ -381,7 +383,7 @@ header{
 .tab-Nav{
     display:flex;
     margin: 0;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 .tab-Nav li{
     background-color: white;
@@ -457,6 +459,18 @@ header{
     .account-info-form option {
         background-color: #202224;
     }
+    .account-info-form textarea {
+        background-color: inherit;
+        border: 1px solid white;
+        max-width: 30rem;
+        max-height: 10rem;
+        min-height: 5rem;
+        min-width: 20rem;
+    }
+    .account-info-form textarea:focus {
+        border: 3px solid brown;
+        outline: none;
+    }
 
         .account-info-form input[type="text"]:focus,
         .account-info-form input[type="email"]:focus,
@@ -464,7 +478,7 @@ header{
         .account-info-form input[type="tel"]:focus
         {
             background-color: #202224;
-            border-bottom: 1px solid brown;
+            border-bottom: 3px solid brown;
             outline: none;
         }
 
@@ -535,4 +549,7 @@ header{
 .drop-area img{
     width: 4rem;
     height: 5rem;
+}
+.flex-form:nth-of-type(2){
+    justify-content:center;
 }
