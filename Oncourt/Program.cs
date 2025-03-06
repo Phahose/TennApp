@@ -13,6 +13,8 @@ namespace nekwom
             builder.Services.AddRazorPages();
             builder.Services.AddSession();
 
+            builder.Services.AddControllers(); // ? Add support for API controllers
+
             builder.Services.AddRazorPages().AddRazorPagesOptions(o =>
             {
                 o.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
@@ -23,16 +25,38 @@ namespace nekwom
             {
                 options.LoginPath = "/Index";
             });
+
             builder.Services.AddAuthorization();
+
+            // ? Enable CORS for React Native requests
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReactNative",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
+
             var app = builder.Build();
 
-            //Configure the HTTP reqest pipeline
-            app.UseStaticFiles(); // add for wwroot
+            // Configure the HTTP request pipeline
+            app.UseStaticFiles();
             app.UseRouting();
+
+            // ? Enable CORS
+            app.UseCors("AllowReactNative");
+
             app.UseSession();
-            app.MapRazorPages();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            // ? Map API Controllers (so React Native can call them)
+            app.MapControllers();
+            app.MapRazorPages();
+
             app.Run();
         }
     }

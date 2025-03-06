@@ -1,0 +1,556 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*The Home Page intro*/
+.holder-home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/PickleballMan.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+.home-nav{
+  display: flex;
+  width: 88%;
+  list-style: none;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  position: fixed;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.home-nav ul{
+   display: flex;
+   width: fit-content;
+   justify-content: space-between;
+   list-style: none;
+}
+.home-nav ul  img{
+    width: 2px;
+
+}
+    .home-nav ul > li {
+        margin: 0 2rem;
+        padding: 1rem;
+        font-family: "Bruno Ace", sans-serif;
+        color: white;
+        cursor: pointer
+    }
+.create-account{
+   border: 2px solid white;
+   padding: 1rem
+}
+.login:hover {
+    padding: 1.2rem;
+    transition: 0.2s ease-in-out;
+    border-bottom: 1.5px solid white;
+}
+    .create-account:hover {
+        transition: 0.2s ease-in-out;
+        background-color: #161617;
+        padding: 1.2rem;
+    }
+.holder-home h1 {
+    font-size: 5rem;
+    color: white;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2%;
+}
+.pre-login-div {
+    display: flex;
+    justify-content: center;
+  
+}
+.login-div {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 70%;
+    max-width: 50rem;
+    text-align: center;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    .login-div div:nth-child(1) {
+        background-color: black;
+        height: inherit;
+        display: flex;
+        flex-flow:column;
+        align-items: center;
+        justify-content:center;
+        padding: 1rem;
+        width: 50%;
+    }
+    .login-div p {
+        color: white;
+        font-family: "Bruno Ace", sans-serif;
+        font-size: 0.7rem;
+    }
+.login-div div:nth-child(2){
+    margin-top: 1rem;
+    width: 50%;
+    display:flex;
+    justify-content: center;
+}
+    .login-div h2 {
+        color: white;
+        font-family: "Bruno Ace", sans-serif;
+    }
+.login-div form{
+    padding: 1rem;
+    margin: 1rem;
+    width: 18rem;
+}
+
+.basicform label {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+    font-family: "Bruno Ace", sans-serif;
+}
+
+    .basicform input[type="email"],
+    .basicform input[type="password"],
+    .basicform input[type="text"],
+    .basicform input[type="file"],
+    .basicform select
+    {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: "Bruno Ace", sans-serif;
+        margin-top: 1rem;
+    }
+
+.basicform input[type="submit"] {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    font-family: "Bruno Ace", sans-serif;
+    transition: 0.2s ease-in-out;
+}
+
+.basicform input[type="submit"]:hover{
+     transform: scale(1.05);
+}
+
+.hide{
+    display: none;
+}
+
+.errormessage {
+    color: red;
+    font-family: "Bruno Ace", sans-serif;
+}
+.successMessage {
+    color: limegreen;
+    font-family: "Bruno Ace", sans-serif;
+}
+/*Profile Styling*/
+.container {
+    display: flex;
+    background-color: #161617;
+    font-family: "Bruno Ace", sans-serif;
+    font-size: 15px;
+}
+.card {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s;
+    max-width: 20rem;
+    background-color: #121112;
+    padding: 1rem;
+    
+}
+.card-container {
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+}
+.card-info p{
+    color: grey;
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.card-section{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #121112;
+    height:fit-content;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+.card-first-sec{
+    width:55%;
+    color: white;
+    max-width: 25rem;
+    min-width: 20rem;
+    overflow-y: auto;
+    height:fit-content;
+}
+::-webkit-scrollbar {
+    background-color: #121112;
+    height: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 2rem;
+    width: 1rem;
+}
+.profile-nav{
+    color: black;
+    padding: 1rem;
+    background-color: white;
+}
+.card-first-sec ul {
+    list-style: none;
+    padding: 0
+}
+.card-first-sec li {
+    background-color: #2b2a2e;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+.card-first-sec a{
+    text-decoration: none;
+    color: white;
+}
+.card-first-sec li:hover{
+    background-color: black
+}
+.card-info{
+    padding: 0.5rem;
+}
+.card-info h3{
+    color: white;
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #ffffff !important;
+    width: 15px; /* Adjust the width to make the buttons shorter */
+    height: 15px; /* Adjust the height to make the buttons shorter */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+        background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+    }
+
+.profile-pic{
+    width:2.7rem;
+    height: 2.7rem;
+    border-radius: 2rem;
+}
+.profile-nav .profile-switch li {
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    width: 50%;
+    color: white;
+    padding-right: 0.5rem;
+}
+.profile-nav a{
+    margin:0;
+    margin-right: 1rem;
+}
+
+
+
+
+/*Styling for Messages Page*/
+.message-view {
+    background-color: #121112;
+    height: 90vh;
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.message-form{
+    width: inherit;
+    height: inherit;
+}
+
+.message-input {
+    width: 80%;
+    padding: 0.7rem;
+    color: white;
+    background-color: #121112;
+    border: 1px solid white;
+    border-radius: 2rem;
+    margin: 0.5rem;
+    font-family: "Bruno Ace", sans-serif;
+}
+.message-input:focus{
+    border: 1px solid blue;
+}
+.message-box{
+    display: flex;
+    justify-content: center;
+}
+.send-button{
+    color: ghostwhite;
+    background-color: dimgrey;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+.send-button:hover{
+    background-color: #151617;
+}
+.message-list li{
+    display: flex;
+    align-items: center;
+}
+.message-list a{
+    margin-right: 1rem;
+}
+
+
+
+/*Styling for Players Page*/
+.icon-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+}
+
+.yes-button {
+    color: #28a745; /* Green for Yes */
+}
+
+.no-button {
+    color: #dc3545; /* Red for No */
+}
+
+.icon-button:focus {
+    outline: none;
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+.tab-Nav{
+    display:flex;
+    margin: 0;
+    overflow-x: auto;
+}
+.tab-Nav li{
+    background-color: white;
+    font-size: 1rem;
+}
+.tab-Nav li:hover{
+   transition: 0.3s ease-in-out;
+   background-color: white;
+   border-bottom: 1px solid black;
+  transform: scale(1.1);
+}
+.tab-Nav a{
+    color: black;
+}
+
+
+/*Requests Page Styling*/
+
+.mini-requests {
+    display: flex;
+    width: 70%;
+    border-bottom: 1px solid white;
+    margin-bottom: 0.5rem;
+    overflow-x: scroll;
+    justify-content:center;
+}
+.mini-cards img {
+    max-width: 8rem;
+    max-height: 8rem;
+}
+.mini-cards {
+    width: fit-content;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 1px solid white;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+    color: white;
+}
+
+
+/*Account Info Page*/
+.account-info-form {
+    padding: 1rem;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    background-color: #202224;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 40rem;
+}
+
+    .account-info-form input[type="text"],
+    .account-info-form input[type="email"],
+    .account-info-form input[type="password"],
+    .account-info-form input[type="file"],
+    .account-info-form input[type="tel"],
+    .account-info-form select 
+    {
+        background-color: inherit;
+        border: none;
+        border-bottom: 1px solid white;
+        color: white;
+        margin: 1rem 1rem; 
+        width: 12rem;
+        padding: 0.5rem; 
+        font-family: "Bruno Ace", sans-serif; 
+    }
+    .account-info-form option {
+        background-color: #202224;
+    }
+    .account-info-form textarea {
+        background-color: inherit;
+        border: 1px solid white;
+        max-width: 30rem;
+        max-height: 10rem;
+        min-height: 5rem;
+        min-width: 20rem;
+    }
+    .account-info-form textarea:focus {
+        border: 3px solid brown;
+        outline: none;
+    }
+
+        .account-info-form input[type="text"]:focus,
+        .account-info-form input[type="email"]:focus,
+        .account-info-form input[type="password"]:focus, 
+        .account-info-form input[type="tel"]:focus
+        {
+            background-color: #202224;
+            border-bottom: 3px solid brown;
+            outline: none;
+        }
+
+    .account-info-form select {
+        background-color: inherit;
+        color: white;
+        border: none;
+        border-bottom: 1px solid white;
+        width: 14rem;
+        padding: 0.5rem;
+        font-family: "Bruno Ace", sans-serif; 
+    }
+
+.flex-form{
+    display:flex;
+    justify-content:space-between;
+    width: 100%;
+    max-width: 35rem;
+    margin: 1rem;
+}
+.flex-form label{
+    padding: 0 1rem;
+}
+
+.image-upload-container {
+    width: 60%;
+    margin-top: 0rem;
+    justify-content: space-between;
+    max-width: 35rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.file-icon {
+    width: 4rem;
+    border-radius: 1rem;
+    margin: 0;
+}
+.hero {
+    border: 1px solid white;
+    width: fit-content;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-inputholder{
+    display:flex;
+}
+
+.account-info-form input[type="submit"] {
+    padding: 0.5rem;
+    margin: 1rem;
+    width: 58%;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    font-family: "Bruno Ace", sans-serif;
+    transition: 0.2s ease-in-out;
+}
+.account-info-form input[type="submit"]:hover {
+    transform: scale(1.1);
+}
+.drop-area img{
+    width: 4rem;
+    height: 5rem;
+}
+.flex-form:nth-of-type(2){
+    justify-content:center;
+}

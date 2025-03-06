@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\OnCourt.csproj": {}
+    "C:\\Users\\ekwom\\OneDrive\\Desktop\\Coding  Projects\\OnCourt\\Oncourt\\OnCourt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\OnCourt.csproj": {
+    "C:\\Users\\ekwom\\OneDrive\\Desktop\\Coding  Projects\\OnCourt\\Oncourt\\OnCourt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\OnCourt.csproj",
+        "projectUniqueName": "C:\\Users\\ekwom\\OneDrive\\Desktop\\Coding  Projects\\OnCourt\\Oncourt\\OnCourt.csproj",
         "projectName": "OnCourt",
-        "projectPath": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\OnCourt.csproj",
+        "projectPath": "C:\\Users\\ekwom\\OneDrive\\Desktop\\Coding  Projects\\OnCourt\\Oncourt\\OnCourt.csproj",
         "packagesPath": "C:\\Users\\ekwom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ekwom\\OneDrive\\Desktop\\OnCourt\\Oncourt\\obj\\",
+        "outputPath": "C:\\Users\\ekwom\\OneDrive\\Desktop\\Coding  Projects\\OnCourt\\Oncourt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
